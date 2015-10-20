@@ -1,1 +1,3 @@
-Content Model, Presentation Model and Nav Model info can be found in Week 5 Lecture c
+Documents from the draft docs milestone are in documentation files folder
+
+Files pertaining to the assignment implementation in Assignment Files folder
