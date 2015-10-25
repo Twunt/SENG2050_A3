@@ -90,3 +90,8 @@ insert into user VALUES('bob','bob smith','skjfs23','student');
 insert into user VALUES('jack','bob smith','skjfs23','student');
 
 insert into issue VALUES(,,);
+
+
+insert into room VALUES('ES1.01', 30, true, false, false, true, true, 'ES Building', 'Computer Lab', '2015-5-18 09:00:00', '2015-5-18 10:00:00');
+insert into room VALUES('ES1.01', 30, true, false, false, true, true, 'ES Building', 'Computer Lab', '2015-5-18 12:00:00', '2015-5-18 14:00:00');
+insert into room VALUES('ES1.01', 30, true, false, false, true, true, 'ES Building', 'Computer Lab', '2015-5-18 14:00:00', '2015-5-18 16:00:00');
