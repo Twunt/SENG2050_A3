@@ -12,8 +12,10 @@
 			<td><c:out value="${movie.url}"/></td>
 		</tr>
 	</c:forEach>
-	<c:forEach var="maint"  items="${maintMessages}">
-		Start Time: <c:out value="${maint.startTime}"/><br>
-		End Time: <c:out value="${maint.endTime}"/><br>
-		Message: <c:out value="${maint.maintString}"/><br>
+
 </table>
+	<c:forEach var="maint"  items="${maintMessages}">
+		<c:out value="${maint.message}"/><br>
+		<c:out value="${maint.start}"/><br>
+		<c:out value="${maint.end}"/><br>
+	</c:forEach>

@@ -4,7 +4,7 @@ import javax.sql.*;
 import java.sql.*;
 import java.util.*;
 import java.io.Serializable; 
-
+import java.text.SimpleDateFormat;
 public class Maintenance implements Serializable{
 	private String maintString;
 	private Calendar startTime;
@@ -13,14 +13,16 @@ public class Maintenance implements Serializable{
 	public Maintenance(){
 		maintString = "";
 		currTime = Calendar.getInstance();
+		startTime = Calendar.getInstance();
+		endTime = Calendar.getInstance();
 	}
 		public void setMessage(String s){
 			maintString = s;
 		}
-		public void setSTime(Time st){
+		public void setSTime(Timestamp st){
 			startTime.setTimeInMillis(st.getTime());
 		}
-		public void setETime(Time et){
+		public void setETime(Timestamp et){
 			endTime.setTimeInMillis(et.getTime());
 		}
 	public static List<Maintenance>  getMessages(){
@@ -31,11 +33,9 @@ public class Maintenance implements Serializable{
 		ResultSet result = statement.executeQuery(query);){ //step 3 and 4
 			while(result.next()){ //step 5
 				Maintenance maint = new Maintenance();
-				// you should be validating the following,
-				// this is just an example to get you started
 				maint.setMessage(result.getString(2));
-				maint.setSTime(result.getTime(3));
-				maint.setETime(result.getTime(4));
+				maint.setSTime(result.getTimestamp(3));
+				maint.setETime(result.getTimestamp(4));
 				maintList.add(maint);
 			}
 		}		catch(SQLException e){
@@ -44,7 +44,16 @@ public class Maintenance implements Serializable{
 		}
 		return maintList;
 	}
-
-
+	public String getMessage(){
+		return maintString;
+	}
+	public String getStart(){
+		String sTime = new SimpleDateFormat("dd-MM-yy ss-mm-HH").format(startTime.getTime());
+		return sTime;
+	}
+	public String getEnd(){
+		String eTime = new SimpleDateFormat("dd-MM-yy ss-mm-HH").format(endTime.getTime());
+		return eTime;
+	}
 
 	}
