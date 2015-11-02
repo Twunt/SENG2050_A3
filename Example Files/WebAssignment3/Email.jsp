@@ -1,0 +1,58 @@
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-mail Issue</title>
+    <link rel="stylesheet" type="text/css" href="headerStyle.css">
+</head>
+<body>
+<%@include file="header.jsp"%>
+
+<div id="content">
+    <div class='instructions'>
+    Email.jsp
+    </div>
+    <form method="post" >
+		<h4>E-mail Issue</h4>
+		Title of issue : <input  type="text" name="title" id="title" maxlength='30'> 
+		<br>
+		<br>
+		<input type='hidden' name='issueType' id='issueType' value='hardware'>
+		Sub-category: <select name='subType' id='subType' default='general'>
+			<option value='general'>General</option>
+			<option value='computerWontTurnOn'>Computer won't turn on</option>
+			<option value='computerBlueScreens'>Computer "blue screens"</option>
+			<option value='diskDrive'>Disk drive</option>
+			<option value='peripherals'>Peripherals</option>
+		</select>
+		<br>
+		<br>
+		Mac or PC: <select name='issueType' id='issueType' default='pc'>
+			<option value='mac'>Mac</option>
+			<option value='pc'>PC</option>
+		</select>
+		<br>
+		<br>
+		Operating System: <input  type="text" name="operatingSystem" id="operatingSystem" maxlength='20' default='dont know'>
+		<br>
+		<br>
+		Computer type : <input  type="text" name="compType" id="compType" maxlength='10' default='dont know'> 
+		<br>
+		<br>
+		Computer name: <input  type="text" name="compName" id="compName" maxlength='20' default='dont know'>
+		<br>
+		<br>
+		Room location : <input  type="text" name="location" id="location" maxlength='10' default='dont know'> 
+		<br>
+		<br>
+		Description of the problem : <br>
+		<textarea name='body' id='body' rows='15' cols='100'>"enter a description of the problem here"</textarea>
+		<br>
+		<br>
+		<input class='defaltButton' type="submit" value="Submit" onClick="form.action='Home.jsp';">
+	</form>
+</div>
+
+</body>
+</html>
