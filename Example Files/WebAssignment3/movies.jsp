@@ -13,9 +13,10 @@
 		</tr>
 	</c:forEach>
 
-</table>
+</table><c:if test="${empty maintMessages}">
 	<c:forEach var="maint"  items="${maintMessages}">
-		<c:out value="${maint.message}"/><br>
-		<c:out value="${maint.start}"/><br>
+		From: <c:out value="${maint.message}"/><br>
+		Until: <c:out value="${maint.start}"/><br>
 		<c:out value="${maint.end}"/><br>
 	</c:forEach>
+</c:if>

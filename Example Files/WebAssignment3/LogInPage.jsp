@@ -13,12 +13,12 @@
 
 <div id="content">
     
-    <form method="post" >
+    <form method="get" >
 		User Name : <input type="text" name="userID" id="userID" > <br><br>
 
-		Password : <input type="text" name="userPassword" id="userPassword" > <br><br>
+		Password : <input type="password" name="userPassword" id="userPassword" > <br><br>
 
-		<input class='defaltButton' type="submit" value="Log In" onClick="form.action='Home.jsp';">
+		<input class='defaltButton' type="submit" value="Log In" onClick="form.action='Auth';">
 	</form>
 </div>
 
