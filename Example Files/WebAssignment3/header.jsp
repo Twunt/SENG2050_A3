@@ -10,11 +10,11 @@
    <c:when test="${!user.staff}">
    <li class='has-sub'><a href='#'><span>Submit an issue</span></a>
       <ul>
-         <li><a href='#'><span>Hardware</span></a></li>
-         <li><a href='#'><span>Email</span></a></li>
-         <li><a href='#'><span>Account</span></a></li>
-         <li><a href='#'><span>Network</span></a></li>
-         <li class='last'><a href='#'><span>Software</span></a></li>
+         <li><a href='Hardware.jsp'><span>Hardware</span></a></li>
+         <li><a href='Email.jsp'><span>Email</span></a></li>
+         <li><a href='Account.jsp'><span>Account</span></a></li>
+         <li><a href='Network.jsp'><span>Network</span></a></li>
+         <li class='last'><a href='Software.jsp'><span>Software</span></a></li>
       </ul>
    </li>
    </c:when>
