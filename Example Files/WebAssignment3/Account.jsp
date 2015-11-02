@@ -18,7 +18,7 @@
 		Title of issue : <input  type="text" name="title" id="title" maxlength='30'> 
 		<br>
 		<br>
-		<input type='hidden' name='issueType' id='issueType' value='hardware'>
+		<input type='hidden' name='issueType' id='issueType' value='account'>
 		Sub-category: <select name='subType' id='subType' default='general'>
 			<option value='general'>General</option>
 			<option value='passwordReset'>Password reset</option>

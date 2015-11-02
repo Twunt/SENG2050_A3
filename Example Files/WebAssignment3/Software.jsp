@@ -18,14 +18,18 @@
 		Title of issue : <input  type="text" name="title" id="title" maxlength='30'> 
 		<br>
 		<br>
-		<input type='hidden' name='issueType' id='issueType' value='hardware'>
+		<input type='hidden' name='issueType' id='issueType' value='software'>
 		Sub-category: <select name='subType' id='subType' default='general'>
 			<option value='general'>General</option>
-			<option value='computerWontTurnOn'>Computer won't turn on</option>
-			<option value='computerBlueScreens'>Computer "blue screens"</option>
-			<option value='diskDrive'>Disk drive</option>
-			<option value='peripherals'>Peripherals</option>
+			<option value='slowToLoad'>Computer is slow to load</option>
+			<option value='wontLoadAtAll'>Computer won't load at all</option>
 		</select>
+		<br>
+		<br>
+		Software Name: <input  type="text" name="softwareName" id="softwareName" maxlength='30' default='dont know'>
+		<br>
+		<br>
+		Operating System: <input  type="text" name="softwareVersion" id="softwareVersion" maxlength='30' default='dont know'>
 		<br>
 		<br>
 		Mac or PC: <select name='issueType' id='issueType' default='pc'>

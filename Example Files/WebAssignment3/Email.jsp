@@ -18,32 +18,25 @@
 		Title of issue : <input  type="text" name="title" id="title" maxlength='30'> 
 		<br>
 		<br>
-		<input type='hidden' name='issueType' id='issueType' value='hardware'>
+		<input type='hidden' name='issueType' id='issueType' value='email'>
 		Sub-category: <select name='subType' id='subType' default='general'>
 			<option value='general'>General</option>
-			<option value='computerWontTurnOn'>Computer won't turn on</option>
-			<option value='computerBlueScreens'>Computer "blue screens"</option>
-			<option value='diskDrive'>Disk drive</option>
-			<option value='peripherals'>Peripherals</option>
+			<option value='cantSend'>Can't send Emails</option>
+			<option value='cantReceive'>Can't receive Emails</option>
+			<option value='spamPhishing'>SPAM/Phishing</option>
 		</select>
 		<br>
 		<br>
-		Mac or PC: <select name='issueType' id='issueType' default='pc'>
-			<option value='mac'>Mac</option>
-			<option value='pc'>PC</option>
-		</select>
+		Your Email Address: <input  type="text" name="emailAddress" id="emailAddress" maxlength='50' default='dont know'>
 		<br>
 		<br>
 		Operating System: <input  type="text" name="operatingSystem" id="operatingSystem" maxlength='20' default='dont know'>
 		<br>
 		<br>
-		Computer type : <input  type="text" name="compType" id="compType" maxlength='10' default='dont know'> 
+		When the issue occured: <input  type="text" name="compName" id="compName" maxlength='20' default='dont know'>
 		<br>
 		<br>
-		Computer name: <input  type="text" name="compName" id="compName" maxlength='20' default='dont know'>
-		<br>
-		<br>
-		Room location : <input  type="text" name="location" id="location" maxlength='10' default='dont know'> 
+		What browser are you using : <input  type="text" name="browser" id="browser" maxlength='30' default='dont know'> 
 		<br>
 		<br>
 		Description of the problem : <br>
