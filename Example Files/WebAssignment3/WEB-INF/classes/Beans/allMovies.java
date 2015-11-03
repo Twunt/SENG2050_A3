@@ -17,6 +17,7 @@ public class allMovies extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
     	request.setAttribute("movies", Movie.getAllMovies());
+    	request.setAttribute("maintenance", Maintenance.getMessages());
     	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/movies.jsp");
 		dispatcher.forward(request, response);
 }

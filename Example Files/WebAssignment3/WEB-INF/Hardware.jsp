@@ -23,6 +23,7 @@ Welcome <jsp:getProperty name='user' property='name'/> what is your issue?
 		<br>
 		<br>
 		<input type='hidden' name='issueType' id='issueType' value='hardware'>
+		<input type='hidden' name='state' id='state' value='new'>
 		Sub-category: <select name='issueType' id='issueType' default='general'>
 			<option value='general'>General</option>
 			<option value='computerWontTurnOn'>Computer won't turn on</option>
@@ -54,7 +55,7 @@ Welcome <jsp:getProperty name='user' property='name'/> what is your issue?
 		<textarea name='body' id='body' rows='15' cols='100'>"enter a description of the problem here"</textarea>
 		<br>
 		<br>
-		<input class='defaltButton' type="submit" value="Submit" onClick="form.action='SubmitIssue';"><%-- change submit from home.jsp to a form validation java file --%>
+		<input class='defaltButton' type="submit" value="Submit" onClick="form.action='SubmitIssue';">
 	</form>
 </div>
 

@@ -8,7 +8,11 @@
 </head>
 <body>
 <%@include file="header.jsp"%>
-
+<jsp:useBean id='issue' class='Beans.Issue' scope='page'/>
+<jsp:useBean id='user' class='Beans.User' scope='session'/>
+<jsp:setProperty name='issue' property='*'/>
+Welcome <jsp:getProperty name='user' property='name'/> what is your issue?
+<br>
 <div id="content">
     <div class='instructions'>
     Email.jsp
@@ -19,6 +23,7 @@
 		<br>
 		<br>
 		<input type='hidden' name='issueType' id='issueType' value='email'>
+		<input type='hidden' name='state' id='state' value='new'>
 		Sub-category: <select name='subType' id='subType' default='general'>
 			<option value='general'>General</option>
 			<option value='cantSend'>Can't send Emails</option>
@@ -40,7 +45,7 @@
 		<textarea name='body' id='body' rows='15' cols='100'>"enter a description of the problem here"</textarea>
 		<br>
 		<br>
-		<input class='defaltButton' type="submit" value="Submit" onClick="form.action='Home.jsp';">
+		<input class='defaltButton' type="submit" value="Submit" onClick="form.action='SubmitIssue';">
 	</form>
 </div>
 

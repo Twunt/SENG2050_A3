@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hardware Issue</title>
+    <title>Software Issue</title>
     <link rel="stylesheet" type="text/css" href="headerStyle.css">
 </head>
 <body>
@@ -15,24 +15,29 @@ Welcome <jsp:getProperty name='user' property='name'/> what is your issue?
 <br>
 <div id="content">
     <div class='instructions'>
-    Hardware.jsp
+    Software.jsp
     </div>
-    <form method="get" >
-		<h4>Hardware Issue</h4>
+    <form method="post" >
+		<h4>Software Issue</h4>
 		Title of issue : <input  type="text" name="title" id="title" maxlength='30'> 
 		<br>
 		<br>
-		<input type='hidden' name='issueType' id='issueType' value='hardware'>
-		Sub-category: <select name='issueType' id='issueType' default='general'>
+		<input type='hidden' name='issueType' id='issueType' value='software'>
+		<input type='hidden' name='state' id='state' value='new'>
+		Sub-category: <select name='subType' id='subType' default='general'>
 			<option value='general'>General</option>
-			<option value='computerWontTurnOn'>Computer won't turn on</option>
-			<option value='computerBlueScreens'>Computer "blue screens"</option>
-			<option value='diskDrive'>Disk drive</option>
-			<option value='peripherals'>Peripherals</option>
+			<option value='slowToLoad'>Computer is slow to load</option>
+			<option value='wontLoadAtAll'>Computer won't load at all</option>
 		</select>
 		<br>
 		<br>
-		Mac or PC: <select name='macOrPc' id='macOrPc' default='pc'>
+		Software Name: <input  type="text" name="softwareName" id="softwareName" maxlength='30' default='dont know'>
+		<br>
+		<br>
+		Operating System: <input  type="text" name="softwareVersion" id="softwareVersion" maxlength='30' default='dont know'>
+		<br>
+		<br>
+		Mac or PC: <select name='issueType' id='issueType' default='pc'>
 			<option value='mac'>Mac</option>
 			<option value='pc'>PC</option>
 		</select>
@@ -54,7 +59,7 @@ Welcome <jsp:getProperty name='user' property='name'/> what is your issue?
 		<textarea name='body' id='body' rows='15' cols='100'>"enter a description of the problem here"</textarea>
 		<br>
 		<br>
-		<input class='defaltButton' type="submit" value="Submit" onClick="form.action='SubmitIssue';"><%-- change submit from home.jsp to a form validation java file --%>
+		<input class='defaltButton' type="submit" value="Submit" onClick="form.action='SubmitIssue';">
 	</form>
 </div>
 
