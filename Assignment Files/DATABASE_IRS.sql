@@ -1,8 +1,3 @@
--- DROP DATABASE IRS;
-CREATE DATABASE IRS;
-
-use IRS;
-
 CREATE TABLE irsUser(
 userID VARCHAR(16) NOT NULL PRIMARY KEY,
 userName VARCHAR(30),
@@ -97,6 +92,15 @@ insert into issue VALUES("BPrattern","AFaulds","inProgress","I've forgotten my p
 insert into issue VALUES("LGulliver",NULL,"new","account says I am a user, when I should be an admin","wrong user status","account","other",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"user");
 
 
+<<<<<<< HEAD
 insert into room VALUES("ES1.01", 30, true, false, false, true, true, "ES Building", "Computer Lab", "2015-5-18 09:00:00", "2015-5-18 10:00:00");
 insert into room VALUES("ES1.01", 30, true, false, false, true, true, "ES Building", "Computer Lab", "2015-5-18 12:00:00", "2015-5-18 14:00:00");
 insert into room VALUES("ES1.01", 30, true, false, false, true, true, "ES Building", "Computer Lab", "2015-5-18 14:00:00", "2015-5-18 16:00:00");
+=======
+insert into issue VALUES(,,);
+
+
+insert into room VALUES('ES1.01', 30, true, false, false, true, true, 'ES Building', 'Computer Lab', '2015-5-18 09:00:00', '2015-5-18 10:00:00');
+insert into room VALUES('ES1.01', 30, true, false, false, true, true, 'ES Building', 'Computer Lab', '2015-5-18 12:00:00', '2015-5-18 14:00:00');
+insert into room VALUES('ES1.01', 30, true, false, false, true, true, 'ES Building', 'Computer Lab', '2015-5-18 14:00:00', '2015-5-18 16:00:00');
+>>>>>>> origin/master
