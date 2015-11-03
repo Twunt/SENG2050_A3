@@ -8,7 +8,11 @@
 </head>
 <body>
 <%@include file="header.jsp"%>
-
+<jsp:useBean id='issue' class='Beans.Issue' scope='page'/>
+<jsp:useBean id='user' class='Beans.User' scope='session'/>
+<jsp:setProperty name='issue' property='*'/>
+Welcome <jsp:getProperty name='user' property='name'/> what is your issue?
+<br>
 <div id="content">
     <div class='instructions'>
     Hardware.jsp
@@ -50,7 +54,7 @@
 		<textarea name='body' id='body' rows='15' cols='100'>"enter a description of the problem here"</textarea>
 		<br>
 		<br>
-		<input class='defaltButton' type="submit" value="Submit" onClick="form.action='Home.jsp';"><%-- change submit from home.jsp to a form validation java file --%>
+		<input class='defaltButton' type="submit" value="Submit" onClick="form.action='SubmitIssue';"><%-- change submit from home.jsp to a form validation java file --%>
 	</form>
 </div>
 
