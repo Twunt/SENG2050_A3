@@ -31,7 +31,7 @@ public class User implements Serializable{
 		return role;
 	}
 	public boolean isStaff(){
-		if (role.equals("Staff"))
+		if (role.equals("staff"))
 			return true;
 		return false;
 	}
