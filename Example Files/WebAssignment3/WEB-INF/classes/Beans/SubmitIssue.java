@@ -77,6 +77,7 @@ public class SubmitIssue extends HttpServlet {
 	    	System.out.println(e);
 	    }
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Home.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	public int getIssueID() throws SQLException {
