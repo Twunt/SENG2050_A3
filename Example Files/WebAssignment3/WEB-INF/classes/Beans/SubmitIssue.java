@@ -48,9 +48,7 @@ public class SubmitIssue extends HttpServlet {
 	    	System.out.println(e);
 	    }
 		String category = request.getParameter("issueType");
-		submitterID = submitter.getID();
-		if(category.equals("hardware")){
-			//submitterID= request.getParameter("submitterID");//VARCHAR(16) NOT NULL
+			submitterID = submitter.getID();
 			staffID= request.getParameter("staffID");// VARCHAR(16),
 			state= request.getParameter("state");// VARCHAR(10),
 			body= request.getParameter("body");// text,
@@ -72,122 +70,7 @@ public class SubmitIssue extends HttpServlet {
 			timeOccured= getCurrentTime();// timestamp,
 			browser= request.getParameter("browser");// varchar(30),
 			accountType= request.getParameter("accountType");// varchar(10),
-		}else if(category.equals("account")){
-			//submitterID= request.getParameter("submitterID");//VARCHAR(16) NOT NULL
-			staffID= request.getParameter("staffID");// VARCHAR(16),
-			state= request.getParameter("state");// VARCHAR(10),
-			body= request.getParameter("body");// text,
-			title= request.getParameter("title");// VARCHAR(30),
-			issueType= request.getParameter("issueType");// VARCHAR(30),
-			subType= request.getParameter("subType");// VARCHAR(30),
-			location= request.getParameter("location");// varchar(10),
-			haveRestarted= Boolean.valueOf(request.getParameter("haveRestarted"));// boolean,
-			cableConnected= Boolean.valueOf(request.getParameter("cableConnected"));// boolean,
-			similarIssues= Boolean.valueOf(request.getParameter("similarIssues"));// boolean,
-			hardwareType= request.getParameter("hardwareType");// varchar(20),
-			macOrPc= request.getParameter("macOrPc");// varchar(3),
-			operatingSystem= request.getParameter("operatingSystem");// varchar(20),
-			compType= request.getParameter("compType");// varchar(10),
-			compName= request.getParameter("compName");// varchar(20),
-			softwareName= request.getParameter("softwareName");// varchar(30),
-			softwareVersion= request.getParameter("softwareVersion");// varchar(30),
-			emailAddress= request.getParameter("emailAddress");// varchar(50),
-			timeOccured= getCurrentTime();// timestamp,
-			browser= request.getParameter("browser");// varchar(30),
-			accountType= request.getParameter("accountType");// varchar(10),
-		}else if(category.equals("email")){
-			//submitterID= request.getParameter("submitterID");//VARCHAR(16) NOT NULL
-			staffID= request.getParameter("staffID");// VARCHAR(16),
-			state= request.getParameter("state");// VARCHAR(10),
-			body= request.getParameter("body");// text,
-			title= request.getParameter("title");// VARCHAR(30),
-			issueType= request.getParameter("issueType");// VARCHAR(30),
-			subType= request.getParameter("subType");// VARCHAR(30),
-			location= request.getParameter("location");// varchar(10),
-			haveRestarted= Boolean.valueOf(request.getParameter("haveRestarted"));// boolean,
-			cableConnected= Boolean.valueOf(request.getParameter("cableConnected"));// boolean,
-			similarIssues= Boolean.valueOf(request.getParameter("similarIssues"));// boolean,
-			hardwareType= request.getParameter("hardwareType");// varchar(20),
-			macOrPc= request.getParameter("macOrPc");// varchar(3),
-			operatingSystem= request.getParameter("operatingSystem");// varchar(20),
-			compType= request.getParameter("compType");// varchar(10),
-			compName= request.getParameter("compName");// varchar(20),
-			softwareName= request.getParameter("softwareName");// varchar(30),
-			softwareVersion= request.getParameter("softwareVersion");// varchar(30),
-			emailAddress= request.getParameter("emailAddress");// varchar(50),
-			timeOccured= getCurrentTime();// timestamp,
-			browser= request.getParameter("browser");// varchar(30),
-			accountType= request.getParameter("accountType");// varchar(10),
-		}else if(category.equals("network")){
-			//submitterID= request.getParameter("submitterID");//VARCHAR(16) NOT NULL
-			staffID= request.getParameter("staffID");// VARCHAR(16),
-			state= request.getParameter("state");// VARCHAR(10),
-			body= request.getParameter("body");// text,
-			title= request.getParameter("title");// VARCHAR(30),
-			issueType= request.getParameter("issueType");// VARCHAR(30),
-			subType= request.getParameter("subType");// VARCHAR(30),
-			location= request.getParameter("location");// varchar(10),
-			haveRestarted= Boolean.valueOf(request.getParameter("haveRestarted"));// boolean,
-			cableConnected= Boolean.valueOf(request.getParameter("cableConnected"));// boolean,
-			similarIssues= Boolean.valueOf(request.getParameter("similarIssues"));// boolean,
-			hardwareType= request.getParameter("hardwareType");// varchar(20),
-			macOrPc= request.getParameter("macOrPc");// varchar(3),
-			operatingSystem= request.getParameter("operatingSystem");// varchar(20),
-			compType= request.getParameter("compType");// varchar(10),
-			compName= request.getParameter("compName");// varchar(20),
-			softwareName= request.getParameter("softwareName");// varchar(30),
-			softwareVersion= request.getParameter("softwareVersion");// varchar(30),
-			emailAddress= request.getParameter("emailAddress");// varchar(50),
-			timeOccured= getCurrentTime();// timestamp,
-			browser= request.getParameter("browser");// varchar(30),
-			accountType= request.getParameter("accountType");// varchar(10),
-		}else if(category.equals("software")){
-			//submitterID= request.getParameter("submitterID");//VARCHAR(16) NOT NULL
-			staffID= request.getParameter("staffID");// VARCHAR(16),
-			state= request.getParameter("state");// VARCHAR(10),
-			body= request.getParameter("body");// text,
-			title= request.getParameter("title");// VARCHAR(30),
-			issueType= request.getParameter("issueType");// VARCHAR(30),
-			subType= request.getParameter("subType");// VARCHAR(30),
-			location= request.getParameter("location");// varchar(10),
-			haveRestarted= Boolean.valueOf(request.getParameter("haveRestarted"));// boolean,
-			cableConnected= Boolean.valueOf(request.getParameter("cableConnected"));// boolean,
-			similarIssues= Boolean.valueOf(request.getParameter("similarIssues"));// boolean,
-			hardwareType= request.getParameter("hardwareType");// varchar(20),
-			macOrPc= request.getParameter("macOrPc");// varchar(3),
-			operatingSystem= request.getParameter("operatingSystem");// varchar(20),
-			compType= request.getParameter("compType");// varchar(10),
-			compName= request.getParameter("compName");// varchar(20),
-			softwareName= request.getParameter("softwareName");// varchar(30),
-			softwareVersion= request.getParameter("softwareVersion");// varchar(30),
-			emailAddress= request.getParameter("emailAddress");// varchar(50),
-			timeOccured= getCurrentTime();// timestamp,
-			browser= request.getParameter("browser");// varchar(30),
-			accountType= request.getParameter("accountType");// varchar(10),
-		}else {
-			//submitterID= request.getParameter("submitterID");//VARCHAR(16) NOT NULL
-			staffID= request.getParameter("staffID");// VARCHAR(16),
-			state= request.getParameter("state");// VARCHAR(10),
-			body= request.getParameter("body");// text,
-			title= request.getParameter("title");// VARCHAR(30),
-			issueType= request.getParameter("issueType");// VARCHAR(30),
-			subType= request.getParameter("subType");// VARCHAR(30),
-			location= request.getParameter("location");// varchar(10),
-			haveRestarted= Boolean.valueOf(request.getParameter("haveRestarted"));// boolean,
-			cableConnected= Boolean.valueOf(request.getParameter("cableConnected"));// boolean,
-			similarIssues= Boolean.valueOf(request.getParameter("similarIssues"));// boolean,
-			hardwareType= request.getParameter("hardwareType");// varchar(20),
-			macOrPc= request.getParameter("macOrPc");// varchar(3),
-			operatingSystem= request.getParameter("operatingSystem");// varchar(20),
-			compType= request.getParameter("compType");// varchar(10),
-			compName= request.getParameter("compName");// varchar(20),
-			softwareName= request.getParameter("softwareName");// varchar(30),
-			softwareVersion= request.getParameter("softwareVersion");// varchar(30),
-			emailAddress= request.getParameter("emailAddress");// varchar(50),
-			timeOccured= getCurrentTime();// timestamp,
-			browser= request.getParameter("browser");// varchar(30),
-			accountType= request.getParameter("accountType");// varchar(10),
-		}
+		
 		try{
 	    	addIssue();
 	    }catch (SQLException e){
@@ -200,13 +83,13 @@ public class SubmitIssue extends HttpServlet {
   		int numberOfIssues =0;
     	String query = "SELECT COUNT(*) FROM issue";
     	try(Connection connection = Config.getConnection();
-		Statement statement = connection.createStatement();
-		ResultSet result = statement.executeQuery(query);){
-      	result.next();
-        numberOfIssues = result.getInt(1);
-      }catch (SQLException e){
-    System.out.println(e);
-    }
+			Statement statement = connection.createStatement();
+			ResultSet result = statement.executeQuery(query);){
+	      	result.next();
+	        numberOfIssues = result.getInt(1);
+    	}catch (SQLException e){
+    		System.out.println(e);
+    	}
         
     return numberOfIssues + 1;
   }
@@ -238,14 +121,14 @@ public class SubmitIssue extends HttpServlet {
         	statement.setString(21, timeOccured);
         	statement.setString(22, browser);
         	statement.setString(23, accountType);
-        	try{
-statement.executeUpdate();
-          }catch (Exception e){
-            System.out.println(e);}
-    }catch (SQLException e){
-    System.out.println(e);
-    }
-    	
+	        try{
+				statement.executeUpdate();
+	        }catch (Exception e){
+	           	System.out.println(e);
+	        }
+    	}catch (SQLException e){
+    		System.out.println(e);
+    	}
 	}
 
 	public String getCurrentTime(){
