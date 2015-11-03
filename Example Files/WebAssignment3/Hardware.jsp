@@ -17,7 +17,7 @@ Welcome <jsp:getProperty name='user' property='name'/> what is your issue?
     <div class='instructions'>
     Hardware.jsp
     </div>
-    <form method="post" >
+    <form method="get" >
 		<h4>Hardware Issue</h4>
 		Title of issue : <input  type="text" name="title" id="title" maxlength='30'> 
 		<br>

@@ -41,15 +41,16 @@ public class SubmitIssue extends HttpServlet {
 		
 
 		Issue myIssue = (Issue)request.getSession().getAttribute("issue");
-		
+		User submitter = (User)request.getSession().getAttribute("user");
 		try{
 	    	issueID = getIssueID();
 	    }catch (SQLException e){
 	    	System.out.println(e);
 	    }
 		String category = request.getParameter("issueType");
+		submitterID = submitter.getID();
 		if(category.equals("hardware")){
-			submitterID= request.getParameter("submitterID");//VARCHAR(16) NOT NULL
+			//submitterID= request.getParameter("submitterID");//VARCHAR(16) NOT NULL
 			staffID= request.getParameter("staffID");// VARCHAR(16),
 			state= request.getParameter("state");// VARCHAR(10),
 			body= request.getParameter("body");// text,
@@ -72,7 +73,7 @@ public class SubmitIssue extends HttpServlet {
 			browser= request.getParameter("browser");// varchar(30),
 			accountType= request.getParameter("accountType");// varchar(10),
 		}else if(category.equals("account")){
-			submitterID= request.getParameter("submitterID");//VARCHAR(16) NOT NULL
+			//submitterID= request.getParameter("submitterID");//VARCHAR(16) NOT NULL
 			staffID= request.getParameter("staffID");// VARCHAR(16),
 			state= request.getParameter("state");// VARCHAR(10),
 			body= request.getParameter("body");// text,
@@ -95,7 +96,7 @@ public class SubmitIssue extends HttpServlet {
 			browser= request.getParameter("browser");// varchar(30),
 			accountType= request.getParameter("accountType");// varchar(10),
 		}else if(category.equals("email")){
-			submitterID= request.getParameter("submitterID");//VARCHAR(16) NOT NULL
+			//submitterID= request.getParameter("submitterID");//VARCHAR(16) NOT NULL
 			staffID= request.getParameter("staffID");// VARCHAR(16),
 			state= request.getParameter("state");// VARCHAR(10),
 			body= request.getParameter("body");// text,
@@ -118,7 +119,7 @@ public class SubmitIssue extends HttpServlet {
 			browser= request.getParameter("browser");// varchar(30),
 			accountType= request.getParameter("accountType");// varchar(10),
 		}else if(category.equals("network")){
-			submitterID= request.getParameter("submitterID");//VARCHAR(16) NOT NULL
+			//submitterID= request.getParameter("submitterID");//VARCHAR(16) NOT NULL
 			staffID= request.getParameter("staffID");// VARCHAR(16),
 			state= request.getParameter("state");// VARCHAR(10),
 			body= request.getParameter("body");// text,
@@ -141,7 +142,7 @@ public class SubmitIssue extends HttpServlet {
 			browser= request.getParameter("browser");// varchar(30),
 			accountType= request.getParameter("accountType");// varchar(10),
 		}else if(category.equals("software")){
-			submitterID= request.getParameter("submitterID");//VARCHAR(16) NOT NULL
+			//submitterID= request.getParameter("submitterID");//VARCHAR(16) NOT NULL
 			staffID= request.getParameter("staffID");// VARCHAR(16),
 			state= request.getParameter("state");// VARCHAR(10),
 			body= request.getParameter("body");// text,
@@ -164,7 +165,7 @@ public class SubmitIssue extends HttpServlet {
 			browser= request.getParameter("browser");// varchar(30),
 			accountType= request.getParameter("accountType");// varchar(10),
 		}else {
-			submitterID= request.getParameter("submitterID");//VARCHAR(16) NOT NULL
+			//submitterID= request.getParameter("submitterID");//VARCHAR(16) NOT NULL
 			staffID= request.getParameter("staffID");// VARCHAR(16),
 			state= request.getParameter("state");// VARCHAR(10),
 			body= request.getParameter("body");// text,
@@ -211,9 +212,9 @@ public class SubmitIssue extends HttpServlet {
   }
   
 	public void addIssue() throws SQLException {
-    String query = "INSERT INTO issue VALUES(?,'?','?','?','?','?','?','?','?',?,?,?,'?','?','?','?','?','?','?','?','?','?','?');";
+    String update = "INSERT INTO issue VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 		try(Connection connection = Config.getConnection();
-        PreparedStatement statement = connection.prepareStatement(query);) {
+        PreparedStatement statement = connection.prepareStatement(update);) {
         	statement.setInt(1, issueID);
         	statement.setString(2, submitterID);
         	statement.setString(3, staffID);
@@ -237,8 +238,8 @@ public class SubmitIssue extends HttpServlet {
         	statement.setString(21, timeOccured);
         	statement.setString(22, browser);
         	statement.setString(23, accountType);
-        	try(ResultSet rs = statement.executeQuery();){
-
+        	try{
+statement.executeUpdate();
           }catch (Exception e){
             System.out.println(e);}
     }catch (SQLException e){
