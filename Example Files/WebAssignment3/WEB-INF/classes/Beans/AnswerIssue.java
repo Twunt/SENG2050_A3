@@ -17,30 +17,64 @@ WebServlet(name = "AnswerIssue", urlPatterns = {
     "/AnswerIssue"
 })
 public class AnswerIssue extends HttpServlet {
+	private Issue thisIssue = new Issue();
+	private int isID = 0;
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException { 
-    }
-    
+    	//isID = request.getParameter("issue");
+    	isID=8;
+    	try {
+    		Issue thisIssue = new Issue();
+    		System.out.println(thisIssue.getTitle());
+    		thisIssue = getThisIssue();
+    		request.setAttribute("issue", thisIssue);
+    		System.out.println(thisIssue.getTitle());
+    		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AnswerIssue.jsp");
+		dispatcher.forward(request, response);
+    	}catch (SQLException e){
+    		System.out.println(e);
+    		//redirect to error page
+    	}
 
-/*
     }
-    	public static List<Issue>  getIssues(String state){
-		String query = "SELECT * FROM maintenance";
-		List<Maintenance> maintList = new LinkedList<>();
+    	public Issue getThisIssue() throws SQLException{
+		String query = "SELECT * FROM issue WHERE issueID = ?";
 		try(Connection connection = Config.getConnection();
-		Statement statement = connection.createStatement();
-		ResultSet result = statement.executeQuery(query);){ //step 3 and 4
-			while(result.next()){ //step 5
-				Maintenance maint = new Maintenance();
-				maint.setMessage(result.getString(2));
-				maint.setSTime(result.getTimestamp(3));
-				maint.setETime(result.getTimestamp(4));
-				maintList.add(maint);
-			}
-		}		catch(SQLException e){
-			System.err.println(e.getMessage());
-			System.err.println(e.getStackTrace());
+        PreparedStatement statement = connection.prepareStatement(query);) {
+        	statement.setInt(1, isID);
+        	try(ResultSet rs = statement.executeQuery();){
+		if (rs.next()){
+			thisIssue.setIssueID(rs.getInt(1));
+			thisIssue.setSubmitterID(rs.getString(2));
+			thisIssue.setStaffID(rs.getString(3));
+			thisIssue.setStateID(rs.getString(4));
+			thisIssue.setBody(rs.getString(5));
+			thisIssue.setTitle(rs.getString(6));
+			thisIssue.setIssueType(rs.getString(7));
+			thisIssue.setSubType(rs.getString(8));
+			thisIssue.setLocation(rs.getString(9));
+			thisIssue.setRestarted(rs.getBoolean(10));
+			thisIssue.setCableConnected(rs.getBoolean(11));
+			thisIssue.setSimilarIssues(rs.getBoolean(12));
+			thisIssue.setHardwareType(rs.getString(13));
+			thisIssue.setSystem(rs.getString(14));
+			thisIssue.setOS(rs.getString(15));
+			thisIssue.setCompType(rs.getString(16));
+			thisIssue.setCompName(rs.getString(17));
+			thisIssue.setSoftwareName(rs.getString(18));
+			thisIssue.setSoftwareVersion(rs.getString(19));
+			thisIssue.setEmailAddress(rs.getString(20));
+			thisIssue.setTimeOccurred(rs.getTimestamp(21));
+			thisIssue.setBrowser(rs.getString(22));
+			thisIssue.setAccountType(rs.getString(23));
+			System.out.println("GETS TO HERE OKAY");
+			;
+			return thisIssue;
+		} else {
 		}
-		return maintList;
-	}*/
+    }
+}
+return null;
+}
+	public List<Comment>
 }
