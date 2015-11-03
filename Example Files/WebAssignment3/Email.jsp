@@ -33,9 +33,6 @@
 		Operating System: <input  type="text" name="operatingSystem" id="operatingSystem" maxlength='20' default='dont know'>
 		<br>
 		<br>
-		When the issue occured: <input  type="text" name="compName" id="compName" maxlength='20' default='dont know'>
-		<br>
-		<br>
 		What browser are you using : <input  type="text" name="browser" id="browser" maxlength='30' default='dont know'> 
 		<br>
 		<br>
