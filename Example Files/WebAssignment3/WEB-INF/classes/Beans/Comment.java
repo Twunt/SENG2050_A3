@@ -6,6 +6,8 @@ public class Comment{
 	private String commentTime;
 	private String commentAuth;
 	private int commentID;
+	private String userName;
+	private int issueID;
 	public Comment(){
 
 	}
@@ -18,7 +20,36 @@ public class Comment{
 	public void setAuth(String a){
 		commentAuth=a;
 	}
-	public void setID(int i){
-		commentID = i;
+	public void setCommentID(int c){
+		commentID = c;
+	}
+
+	public void setUserName(int u){
+		userName = u;
+	}
+
+	public void setUserID(int i){
+		issueID = i;
+	}
+
+	public String getBody(){
+		return commentBody;
+	}
+	public Timestamp getTime(){
+		return commentTime;
+	}
+	public String getAuth(){
+		return commentAuth;
+	}
+	public int getCommentID(){
+		return commentID;
+	}
+
+	public int getUserID(){
+		return userName;
+	}
+
+	public int getUserID(){
+		return issueID;
 	}
 }
