@@ -31,8 +31,15 @@
     		Issue Description: <br>
             <c:out value="${issue.body}"/>
     	</div>
-        <div>
-</div>
+  
+        <c:forEach var="comment" items="${comments}">
+              <div class="comment">
+            <span class="commentName"><c:out value="${comment.userName}"/></span>
+            <span class="commentTime"><c:out value="${comment.time}"/></span><br>
+            <c:out value="${comment.body}"/>
+                </div>
+        </c:forEach>
+
 
 </body>
 </html>

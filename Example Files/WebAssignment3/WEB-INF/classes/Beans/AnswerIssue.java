@@ -25,9 +25,10 @@ public class AnswerIssue extends HttpServlet {
     	isID=8;
     	try {
     		Issue thisIssue = new Issue();
-    		System.out.println(thisIssue.getTitle());
     		thisIssue = getThisIssue();
+    		thisIssue.setComments();
     		request.setAttribute("issue", thisIssue);
+    		request.setAttribute("comments",thisIssue.getComments());
     		System.out.println(thisIssue.getTitle());
     		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AnswerIssue.jsp");
 		dispatcher.forward(request, response);
@@ -67,7 +68,6 @@ public class AnswerIssue extends HttpServlet {
 			thisIssue.setTimeOccurred(rs.getTimestamp(21));
 			thisIssue.setBrowser(rs.getString(22));
 			thisIssue.setAccountType(rs.getString(23));
-			System.out.println("GETS TO HERE OKAY");
 			;
 			return thisIssue;
 		} else {
@@ -76,5 +76,4 @@ public class AnswerIssue extends HttpServlet {
 }
 return null;
 }
-	public List<Comment>
 }
