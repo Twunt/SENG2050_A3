@@ -18,7 +18,4 @@ public class Comment{
 	public void setAuth(String a){
 		commentAuth=a;
 	}
-	public void setID(int i){
-		commentID = i;
-	}
 }
