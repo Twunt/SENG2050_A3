@@ -21,7 +21,7 @@ public class KBase extends HttpServlet {
 		
 		issueType= request.getParameter("issueType");// VARCHAR(30),
 		subType= request.getParameter("subType");// VARCHAR(30),
-		if((issueType.equals("null"))&&((issueType.equals("null")))){
+		if((issueType.equals("null"))&&((subType.equals("null")))){
 			query = "SELECT title,issueID FROM issue where state='kBase'";
 		}else if(!(issueType.equals("null"))){
 			query = "SELECT title,issueID FROM issue where state='kBase' and issueType='"+issueType+"'";
