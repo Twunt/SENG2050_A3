@@ -14,18 +14,17 @@ public class Comment{
 	public void setBody(String b){
 		commentBody = b;
 	}
-	public void setTime(Timestamp t){
+	public void setTime(String t){
 		commentTime = t;
 	}
 	public void setAuth(String a){
 		commentAuth=a;
 	}
-<<<<<<< HEAD
 	public void setCommentID(int c){
 		commentID = c;
 	}
 
-	public void setUserName(int u){
+	public void setUserName(String u){
 		userName = u;
 	}
 
@@ -36,7 +35,7 @@ public class Comment{
 	public String getBody(){
 		return commentBody;
 	}
-	public Timestamp getTime(){
+	public String getTime(){
 		return commentTime;
 	}
 	public String getAuth(){
@@ -46,13 +45,11 @@ public class Comment{
 		return commentID;
 	}
 
-	public int getUserID(){
+	public String getUserName(){
 		return userName;
 	}
 
-	public int getUserID(){
+	public int getIssueID(){
 		return issueID;
 	}
-=======
->>>>>>> origin/master
 }
