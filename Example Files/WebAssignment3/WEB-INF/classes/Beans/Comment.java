@@ -20,6 +20,7 @@ public class Comment{
 	public void setAuth(String a){
 		commentAuth=a;
 	}
+<<<<<<< HEAD
 	public void setCommentID(int c){
 		commentID = c;
 	}
@@ -52,4 +53,6 @@ public class Comment{
 	public int getUserID(){
 		return issueID;
 	}
+=======
+>>>>>>> origin/master
 }

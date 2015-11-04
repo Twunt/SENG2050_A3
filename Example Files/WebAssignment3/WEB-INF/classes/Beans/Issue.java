@@ -1,6 +1,8 @@
 package Beans;
 
-import java.util.Calendar;
+import javax.sql.*;
+import java.sql.*;
+import java.util.*;
 
 public class Issue{
 	
@@ -10,6 +12,7 @@ public class Issue{
 	private boolean restarted, cableConnected, similarIssues;
 	private String hardwareType, compType, compName, emailAddress, browser, accountType;
 	private Calendar timeOccurred;
+	private List<Comment> Comments = new LinkedList<>();
 	public Issue(){
 		timeOccurred=Calendar.getInstance();
 	}
@@ -148,4 +151,19 @@ public class Issue{
 	public Calendar getTimeOccurred() {
 		return timeOccurred;
 	}
+	public void setTimeOccurred(Timestamp timeOccurred) {
+		this.timeOccurred.setTimeInMillis(timeOccurred.getTime());
+	}
+	public void getComments()throws SQLException{
+		String query = "SELECT u.userName,c.commentBody,c.timePosted FROM userComment c INNER JOIN irsUser u ON u.userID=c.userID AND c.issueID=?";
+		try(Connection connection = Config.getConnection();
+        PreparedStatement statement = connection.prepareStatement(query);) {
+        	statement.setInt(1, getIssueID());
+        	try(ResultSet rs = statement.executeQuery();){
+		while (rs.next()){
+			
+		} 
+    }
+}
+}
 }
