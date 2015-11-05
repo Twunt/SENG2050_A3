@@ -78,17 +78,18 @@
 	<br>
 	<br>
 	<div class='submitComment'>
-		<form method='get' action=''>
+		<form method='get' action='SubmitComment'  >
 			<div class='instructions'>
 				Would you like to add a comment?<br>
 				Just fill in the box below and hit submit.
 			</div>
+			<input type='hidden' name='currentPage' id='currentPage' value='KBArticle' >
 			<input type='hidden' name='issueID' id='issueID' value=<c:out value="${issue.issueID}"/> >
-			<input type='hidden' name='userID' id='userID' value=<c:out value="${user.ID}"/> >
+			<input type='hidden' name='userID' id='userID' value=<c:out value="${user.ID}"/> />
 			<textarea name='commentBody' id='commentBody' rows='5' cols='75'></textarea>
 			<br>
 			<br>
-			<input class='defaltButton' type="submit" value="Submit" onClick="form.action='SubmitComment';" />
+			<input class='defaltButton' type="submit" value="Submit"  />
 		</form>
 	</div>
 </div>

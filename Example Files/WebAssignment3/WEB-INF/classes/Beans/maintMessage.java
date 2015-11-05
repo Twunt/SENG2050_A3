@@ -1,25 +1,45 @@
 package Beans;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-@
-WebServlet(name = "getMaintMessage", urlPatterns = {
-    "/dd"
-})
-public class maintMessage extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-    	request.setAttribute("maintMessages", Maintenance.getMessages());
-    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/movies.jsp");
-		dispatcher.forward(request, response);
-}
-    
 
-    }
+public class MaintMessage{
+	private int maintenanceID;
+	private String message;
+	private String startTime;
+	private String endTime;
+	public MaintMessage(){
+
+	}
+
+	public void setMessage(String m){
+		message = m;
+	}
+
+	public void setStartTime(String s){
+		startTime = s;
+	}
+
+	public void setEndTime(String e){
+		endTime=e;
+	}
+
+	public void setMaintenanceID(int i){
+		maintenanceID = i;
+	}
+
+	public int getMaintenanceID(){
+		return maintenanceID;
+	}
+
+	public String getMessage(){
+		return message;
+	}
+
+	public String getStartTime(){
+		return startTime;
+	}
+
+	public String getEndTime(){
+		return endTime;
+	}
+
+}
