@@ -66,13 +66,14 @@
 </div>
 	<c:forEach var="comment" items="${comments}">
 		<br>
-		<div class="comment">
-			Comment by: <c:out value="${comment.userName}"/>
+		<div class="commentContainer">
+			<span class="commentName"><c:out value="${comment.userName}"/></span>
 			<br>
-			At time : <c:out value="${comment.time}"/>
+			<span class="commentTime"><c:out value="${comment.time}"/></span>
 			<br>
-			<br>
+			<br><div class="commentBody">
 			<c:out value="${comment.body}"/>
+        </div>
 		</div>
 	</c:forEach>
 	<br>

@@ -38,11 +38,9 @@ public class SubmitComment extends HttpServlet {
 
 		try{
 	    	addComment();
-<<<<<<< HEAD
-=======
+
 	    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/"+currentPage+"?issueID="+issueID);
 			dispatcher.forward(request, response);
->>>>>>> 5b7f8496b494054d1feb6398a75a53d313bc9637
 	    }catch (SQLException e){
 	    	System.out.println(e);
 	    }

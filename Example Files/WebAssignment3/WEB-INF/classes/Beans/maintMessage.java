@@ -1,7 +1,7 @@
 package Beans;
 
-
-public class MaintMessage{
+import java.io.Serializable;
+public class MaintMessage implements Serializable{
 	private int maintenanceID;
 	private String message;
 	private String startTime;

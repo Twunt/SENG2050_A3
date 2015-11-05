@@ -18,10 +18,10 @@
 	<h2>Below is a list of your issues</h2>
 	<table>
 	<tr><th>Title</th><th>Article link</th></tr>
-	<c:forEach var="issue" items="${issue}">
+	<c:forEach var="issue" items="${issues}">
 		<tr>
-			<td><c:out value="${issue.title}"/></td>
-			<td><a href='KBArticle?issueID=${issue.issueID}'>click here</a></td>
+			
+			<td><a href='KBArticle?issueID=${issue.issueID}'><c:out value="${issue.title}"/></a></td>
 		</tr>
 	</c:forEach>
 </table>

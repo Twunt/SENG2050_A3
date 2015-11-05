@@ -47,19 +47,19 @@ public class SubmitIssue extends HttpServlet {
 	    }catch (SQLException e){
 	    	System.out.println(e);
 	    }
-		String category = request.getParameter("issueType");
-			submitterID = submitter.getID();
-			staffID= request.getParameter("staffID");// VARCHAR(16),
-			state= request.getParameter("state");// VARCHAR(10),
-			body= request.getParameter("body");// text,
-			title= request.getParameter("title");// VARCHAR(30),
-			issueType= request.getParameter("issueType");// VARCHAR(30),
-			subType= request.getParameter("subType");// VARCHAR(30),
-			location= request.getParameter("location");// varchar(10),
-			haveRestarted= Boolean.valueOf(request.getParameter("haveRestarted"));// boolean,
+		String category = 	request.getParameter("issueType");
+			submitterID = 	submitter.getID();
+			staffID= 		request.getParameter("staffID");// VARCHAR(16),
+			state=			request.getParameter("state");// VARCHAR(10),
+			body= 			request.getParameter("body");// text,
+			title= 			request.getParameter("title");// VARCHAR(30),
+			issueType= 		request.getParameter("issueType");// VARCHAR(30),
+			subType= 		request.getParameter("subType");// VARCHAR(30),
+			location= 		request.getParameter("location");// varchar(10),
+			haveRestarted= 	Boolean.valueOf(request.getParameter("haveRestarted"));// boolean,
 			cableConnected= Boolean.valueOf(request.getParameter("cableConnected"));// boolean,
-			similarIssues= Boolean.valueOf(request.getParameter("similarIssues"));// boolean,
-			hardwareType= request.getParameter("hardwareType");// varchar(20),
+			similarIssues= 	Boolean.valueOf(request.getParameter("similarIssues"));// boolean,
+			hardwareType= 	request.getParameter("hardwareType");// varchar(20),
 			macOrPc= request.getParameter("macOrPc");// varchar(3),
 			operatingSystem= request.getParameter("operatingSystem");// varchar(20),
 			compType= request.getParameter("compType");// varchar(10),
@@ -69,6 +69,8 @@ public class SubmitIssue extends HttpServlet {
 			emailAddress= request.getParameter("emailAddress");// varchar(50),
 			timeOccured= getCurrentTime();// timestamp,
 			browser= request.getParameter("browser");// varchar(30),
+			checkEmpty();
+
 			accountType= request.getParameter("accountType");// varchar(10),
 		
 		try{
@@ -76,7 +78,7 @@ public class SubmitIssue extends HttpServlet {
 	    }catch (SQLException e){
 	    	System.out.println(e);
 	    }
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Home.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Home");
 		dispatcher.forward(request, response);
 	}
 
@@ -136,6 +138,46 @@ public class SubmitIssue extends HttpServlet {
 		
 		String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
       return time;
+    }
+    public void checkEmpty(){
+
+ 	if( body!=null &&body.equals("")){
+ 		body="Not Given";
+	}
+	if( title!=null &&title.equals("")){
+		title="Not Given";
+	}
+	if( location!=null &&location.equals("")){
+		location="Not Given";
+	}
+	if( hardwareType!=null &&hardwareType.equals("")){
+		hardwareType="Not Given";
+	}
+	if( macOrPc!=null &&macOrPc.equals("")){
+		macOrPc="Not Given";
+	}
+	if( operatingSystem!=null &&operatingSystem.equals("")){
+		operatingSystem="Not Given";
+	}
+	if( compType!=null &&compType.equals("")){
+		compType="Not Given";
+	}
+	if( compName!=null &&compName.equals("")){
+		compName="Not Given";
+	}
+	if( softwareName!=null &&softwareName.equals("")){
+		softwareName="Not Given";
+	}
+	if( softwareVersion!=null &&softwareVersion.equals("")){
+		softwareVersion="Not Given";
+	}
+	if( emailAddress!=null &&emailAddress.equals("")){
+		emailAddress="Not Given";
+	}
+	if( browser!=null &&browser.equals("")){
+		browser="Not Given";
+	}
+
     }
 
 }
