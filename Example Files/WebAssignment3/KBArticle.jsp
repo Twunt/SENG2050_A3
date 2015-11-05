@@ -11,61 +11,56 @@
 <%@include file="header.jsp"%>
 
 <div id="content">
-    KBArticle.jsp
-</div>
 <div class="article">
-	<br>
-	<c:choose>
-	    <c:when test="${issue.issueType == 'hardware'}">
-	    	System Details: <c:out value="${issue.system}"/> 
-	    	--<c:out value="${issue.OS}"/><br>
-	    	Computer Type: <c:out value="${issue.compType}"/><br>
-	    	Computer Name: <c:out value="${issue.compName}"/><br>
-	    	Room Location: <c:out value="${issue.location}"/><br>
-	        Time of submission: <c:out value="${issue.timeOccurred}"/>
-	    </c:when>
-	    <c:when test="${issue.issueType == 'software'}">
-	    	System Details: <c:out value="${issue.system}"/> 
-	    	--<c:out value="${issue.OS}"/><br>
-	    	Computer Type: <c:out value="${issue.compType}"/><br>
-	    	Computer Name: <c:out value="${issue.compName}"/><br>
-	    	Room Location: <c:out value="${issue.location}"/><br>
-	        Time of submission: <c:out value="${issue.timeOccurred}"/>
-	    </c:when>
-	    <c:when test="${issue.issueType == 'email'}">
-	    	System Details: <c:out value="${issue.system}"/> 
-	    	--<c:out value="${issue.OS}"/><br>
-	    	Computer Type: <c:out value="${issue.compType}"/><br>
-	    	Computer Name: <c:out value="${issue.compName}"/><br>
-	    	Room Location: <c:out value="${issue.location}"/><br>
-	        Time of submission: <c:out value="${issue.timeOccurred}"/>
-	    </c:when>
-	    <c:when test="${issue.issueType == 'account'}">
-	    	System Details: <c:out value="${issue.system}"/> 
-	    	--<c:out value="${issue.OS}"/><br>
-	    	Computer Type: <c:out value="${issue.compType}"/><br>
-	    	Computer Name: <c:out value="${issue.compName}"/><br>
-	    	Room Location: <c:out value="${issue.location}"/><br>
-	        Time of submission: <c:out value="${issue.timeOccurred}"/>
-	    </c:when>
-	    <c:when test="${issue.issueType == 'network'}">
-	    	System Details: <c:out value="${issue.system}"/> 
-	    	--<c:out value="${issue.OS}"/><br>
-	    	Computer Type: <c:out value="${issue.compType}"/><br>
-	    	Computer Name: <c:out value="${issue.compName}"/><br>
-	    	Room Location: <c:out value="${issue.location}"/><br>
-	        Time of submission: <c:out value="${issue.timeOccurred}"/>
-	    </c:when>
+    <h1>Resolve Issue:  <c:out value="${issue.title}"/></h1>
     
-	    <c:otherwise>
-	    	System Details: <c:out value="${issue.system}"/> 
-	    	--<c:out value="${issue.OS}"/><br>
-	    	Computer Type: <c:out value="${issue.compType}"/><br>
-	    	Computer Name: <c:out value="${issue.compName}"/><br>
-	    	Room Location: <c:out value="${issue.location}"/><br>
-	        Time of submission: <c:out value="${issue.timeOccurred}"/>
-	    </c:otherwise>
-	</c:choose>
+    Issue in <c:out value="${issue.issueType}"/> : <c:out value="${issue.subType}"/>
+     <div>
+    <c:choose>
+   
+    <c:when test="${issue.issueType == 'hardware'}">
+    	System Details: <c:out value="${issue.system}"/> <br>
+    	Operating System: <c:out value="${issue.OS}"/><br>
+    	Computer Type: <c:out value="${issue.compType}"/><br>
+    	Computer Name: <c:out value="${issue.compName}"/><br>
+    	Room Location: <c:out value="${issue.location}"/><br>
+        Time of submission: <c:out value="${issue.timeOccurred}"/>
+    </c:when>
+    <c:when test="${issue.issueType == 'email'}">
+        Email Address: <c:out value="${issue.email}"/> <br>
+        Operating System: <c:out value="${issue.OS}"/><br>
+        Browser: <c:out value="${issue.browser}"/><br>
+        Time of submission: <c:out value="${issue.timeOccurred}"/>
+    </c:when>
+    <c:when test="${issue.issueType == 'account'}">
+        <c:out value="${issue.OS}"/><br>
+        Time of submission: <c:out value="${issue.timeOccurred}"/>
+    </c:when>
+    <c:when test="${issue.issueType == 'software'}">
+        System Details: <c:out value="${issue.system}"/> 
+        Operating System: <c:out value="${issue.OS}"/><br>
+        Computer Type: <c:out value="${issue.compType}"/><br>
+        Computer Name: <c:out value="${issue.compName}"/><br>
+        Software Name: <c:out value="${issue.softwareName}"/> version: <c:out value="${issue.softwareName}"/><br>
+        Room Location: <c:out value="${issue.location}"/><br>
+        Time of submission: <c:out value="${issue.timeOccurred}"/>
+    </c:when>
+    <c:when test="${issue.issueType == 'network'}">
+        System Details: <c:out value="${issue.system}"/> 
+        <c:out value="${issue.OS}"/><br>
+        User has <c:if test="${!restarted}"> not</c:if> restarted their device.<br>
+        User has <c:if test="${!restarted}"> not</c:if> checked the cable is connected.<br>
+        Other users have <c:if test="${!restarted}"> not</c:if> Also encountered this problem.<br>
+        Room Location: <c:out value="${issue.location}"/><br>
+        Time of submission: <c:out value="${issue.timeOccurred}"/>
+    </c:when>
+
+</c:choose>
+    	</div>
+    	<div>
+    		Additional issue details: <br>
+            <c:out value="${issue.body}"/>
+    	</div>
 	<br>
 	<br>
 </div>
@@ -96,5 +91,6 @@
 			<input class='defaltButton' type="submit" value="Submit" onClick="form.action='SubmitComment';" />
 		</form>
 	</div>
+</div>
 </body>
 </html>

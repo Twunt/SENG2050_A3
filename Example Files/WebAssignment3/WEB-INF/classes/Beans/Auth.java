@@ -29,7 +29,7 @@ public class Auth extends HttpServlet {
 		}
 		if (logInUser!=null){
 			request.getSession().setAttribute("user", logInUser);
-			response.sendRedirect("Home.jsp");
+			response.sendRedirect("Home");
 			//RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Home.jsp");
 			//dispatcher.forward(request, response); 
 		} else{

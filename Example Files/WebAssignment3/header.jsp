@@ -5,7 +5,7 @@
 <nav>
 <div id='cssmenu'>
 <ul>
-   <li class='active'><a href='index.html'><span>Home</span></a></li>
+   <li class='active'><a href='Home'><span>Home</span></a></li>
    <c:choose>
    <c:when test="${!user.staff}">
    <li class='has-sub'><a href='#'><span>Submit an issue</span></a>
