@@ -17,10 +17,16 @@ public class SubmitComment extends HttpServlet {
 	private String userID;
 	private String body;
 	private String time;
+	private String currentPage;
+
+	public SubmitComment(){
+		
+	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
 		try{
+			currentPage = request.getParameter("currentPage");
 			issueID= Integer.parseInt(request.getParameter("issueID"));// VARCHAR(30),
 			commentID = getCommentID();
 			userID= request.getParameter("userID");
@@ -30,9 +36,10 @@ public class SubmitComment extends HttpServlet {
 	    	System.out.println(e);
 	    }
 
-
 		try{
 	    	addComment();
+	    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/"+currentPage+"?issueID="+issueID);
+			dispatcher.forward(request, response);
 	    }catch (SQLException e){
 	    	System.out.println(e);
 	    }

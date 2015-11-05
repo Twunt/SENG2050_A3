@@ -25,7 +25,6 @@ public class KBArticle extends HttpServlet {
     		Issue thisIssue = new Issue();
     		thisIssue = getThisIssue();
     		User currentUser = (User)request.getSession().getAttribute("user");
-    		System.out.println(currentUser.getID());
     		request.setAttribute("user", currentUser);
     		request.setAttribute("issue", thisIssue);
     	}catch (SQLException e){
