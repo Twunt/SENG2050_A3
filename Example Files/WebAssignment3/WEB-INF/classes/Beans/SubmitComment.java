@@ -17,22 +17,29 @@ public class SubmitComment extends HttpServlet {
 	private String userID;
 	private String body;
 	private String time;
+	private String currentPage;
+
+	public SubmitComment(){
+		
+	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
 		try{
+			currentPage = request.getParameter("currentPage");
 			issueID= Integer.parseInt(request.getParameter("issueID"));// VARCHAR(30),
 			commentID = getCommentID();
 			userID= request.getParameter("userID");
-			body = request.getParameter("body");
+			body = request.getParameter("commentBody");
 			time = getCurrentTime();
 	    }catch (SQLException e){
 	    	System.out.println(e);
 	    }
 
-
 		try{
-	    	addIssue();
+	    	addComment();
+	    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/"+currentPage+"?issueID="+issueID);
+			dispatcher.forward(request, response);
 	    }catch (SQLException e){
 	    	System.out.println(e);
 	    }
@@ -72,7 +79,7 @@ public class SubmitComment extends HttpServlet {
     return numberOfIssues + 1;
   }
 
-  public void addIssue() throws SQLException {
+  public void addComment() throws SQLException {
     String update = "INSERT INTO userComment VALUES(?,?,?,?,?);";
 		try(Connection connection = Config.getConnection();
         PreparedStatement statement = connection.prepareStatement(update);) {
