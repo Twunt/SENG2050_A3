@@ -203,3 +203,11 @@
 .commentBody{
   padding: 5px 5px 5px 20px;
 }
+.userPanel{
+   position:absolute;
+   top:0;
+   right:0;
+   padding:10pt;
+   border-left: solid;
+   border-color: #1b9bff;
+  }

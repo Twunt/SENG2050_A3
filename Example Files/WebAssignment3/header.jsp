@@ -1,6 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header>
-   <c:out value="${user.name}"/>
+   <h1>On and Off Again Ticket Services</h1>
+   <div class="userPanel">
+      Logged in as: <c:out value="${user.name}"/><br>
+      <a href="LogOut">Log Out</a>
 </header>
 <nav>
 <div id='cssmenu'>

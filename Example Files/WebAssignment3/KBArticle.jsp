@@ -93,17 +93,6 @@
 			<input class='defaltButton' type="submit" value="Submit"  />
 		</form>
 	</div>
-    <div>
-        <form method='get' action='ChangeState'  >
-            <div class='instructions'>
-               Change State:
-            </div>
-            <input type='hidden' name='currentPage' id='currentPage' value='KBArticle' />
-            <input type='hidden' name='issueID' id='issueID' value=<c:out value="${issue.issueID}"/>/>
-            <input type='hidden' name='nextState' id='nextState' value='resolved'/>
-            <input class='defaltButton' type="submit" value="Set to Resolved"  />
-        </form>
-    </div>
 </div>
 </body>
 </html>

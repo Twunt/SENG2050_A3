@@ -10,16 +10,12 @@
 <body>
 <%@include file="header.jsp"%>
 
-<div id="content">
-    KnowledgeBase.jsp
-</div>
-
 <table>
-	<tr><th>Title</th><th>Article link</th></tr>
+	<tr><th>Title</th></tr>
 	<c:forEach var="article" items="${articles}">
 		<tr>
-			<td><c:out value="${article.title}"/></td>
-			<td><a href='KBArticle?issueID=${article.issueID}'>click here</a></td>
+
+			<td><a href='KBArticle?issueID=${article.issueID}'><c:out value="${article.title}"/></a></td>
 		</tr>
 	</c:forEach>
 </table>

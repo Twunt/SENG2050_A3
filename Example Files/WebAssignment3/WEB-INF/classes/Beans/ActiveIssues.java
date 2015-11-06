@@ -16,7 +16,7 @@ public class ActiveIssues extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
-			query = "SELECT title,issueID, state FROM issue where state='new' or state='inProgress'";
+			query = "SELECT title,issueID, state FROM issue where state='new' or state='inProgress' order by state";
 		try{
 	    	request.setAttribute("articles",getArticles(query));
 	    }catch (SQLException e){
