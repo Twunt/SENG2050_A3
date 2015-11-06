@@ -16,7 +16,7 @@
 	<c:forEach var="articles" items="${articles}">
 		<tr>
 			
-			<td><a href='KBArticle?issueID=${articles.issueID}'><c:out value="${articles.title}"/></a></td><td><c:out value="${articles.state}"/></td>
+			<td><a href='KBArticle?issueID=${articles.issueID}'><c:out value="${articles.title}"/></a></td><td><c:out value="${articles.stateID}"/></td>
 		</tr>
 	</c:forEach>
 </table>

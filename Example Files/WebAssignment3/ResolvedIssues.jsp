@@ -1,17 +1,24 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Resolved Issues</title>
-    <link rel="stylesheet" type="text/css" href="headerStyle.css">
+	<title>Resolved Issues</title>
+	<link rel="stylesheet" type="text/css" href="headerStyle.css">
 </head>
 <body>
-<%@include file="header.jsp"%>
+	<%@include file="header.jsp"%>
 
-<div id="content">
-    ResolvedIssue.jsp
-</div>
-
+	<div id="content">
+	</div>
+	<table>
+	<tr><th>Title</th></tr>
+	<c:forEach var="articles" items="${articles}">
+		<tr>
+			
+			<td><a href='ResolvedArticle?issueID=${articles.issueID}'><c:out value="${articles.title}"/></a></td><td><c:out value="${articles.stateID}"/></td>
+		</tr>
+	</c:forEach>
+</table>
 </body>
 </html>

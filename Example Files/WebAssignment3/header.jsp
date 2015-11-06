@@ -20,7 +20,7 @@
    </c:when>
    <c:otherwise>
    <li><a href='ActiveIssues'><span>Answer reports</span></a></li>
-   <li class='last'><a href='#'><span>Resolved Issues</span></a></li>
+   <li class='last'><a href='ResolvedIssues'><span>Resolved Issues</span></a></li>
       </c:otherwise>
 </c:choose>
 <li class='has-sub'><a href='KBase?issueType=null&amp;subType=null'><span>Knowledge Base</span></a>
