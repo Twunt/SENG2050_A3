@@ -21,22 +21,23 @@ public class ChangeState extends HttpServlet {
 		currentPage = request.getParameter("currentPage");
 		issueID= Integer.parseInt(request.getParameter("issueID"));// VARCHAR(30),
 		nextState= request.getParameter("nextState");
-
+		String query = "UPDATE issue SET state = '"+nextState+"' WHERE issueID = "+issueID+"";
+		
 		try{
-	    	ChangeState();
+	    	ChangeState(query);
 
-	    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/"+currentPage+"?issueID="+issueID);
+	    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Home");
 			dispatcher.forward(request, response);
 	    }catch (SQLException e){
 	    	System.out.println(e);
 	    }
 	}
 
-	public void ChangeState() throws SQLException{
-		String query = "UPDATE issue SET state = '"+nextState+"'' WHERE issueID = '"+issueID+"'";
+	public void ChangeState(String query) throws SQLException{
 		try(Connection connection = Config.getConnection();
 			Statement statement = connection.createStatement();
-			ResultSet result = statement.executeQuery(query);){
+			){
+      statement.executeUpdate(query);
 		}catch(SQLException e){
 			System.err.println(e.getMessage());
 			System.err.println(e.getStackTrace());
