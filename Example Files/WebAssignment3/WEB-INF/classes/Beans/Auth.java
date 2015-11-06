@@ -21,6 +21,7 @@ public class Auth extends HttpServlet {
     throws ServletException, IOException {
     	String enterID = request.getParameter("userID");
     	String enterPass = request.getParameter("userPassword");
+    	String errorString=null;
     	User logInUser=null;
     	try{
 			logInUser = logIn(enterPass, enterID);
@@ -28,13 +29,17 @@ public class Auth extends HttpServlet {
 			System.out.println(e);
 		}
 		if (logInUser!=null){
+			errorString=null;
+			request.getSession().setAttribute("err", errorString);
 			request.getSession().setAttribute("user", logInUser);
 			response.sendRedirect("Home");
 			//RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Home.jsp");
 			//dispatcher.forward(request, response); 
 		} else{
 			request.getSession().invalidate();
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/loginError.jsp");
+			errorString = "Username or password are incorrect";
+			request.getSession().setAttribute("err", errorString);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/LogInPage.jsp");
 			dispatcher.forward(request, response);
 		}
 	}

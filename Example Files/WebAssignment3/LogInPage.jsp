@@ -13,7 +13,7 @@
 </header>
 
 <div id="content">
-    
+    <c:if test="${not empty err}"><c:out value="${err}"/></c:if>
     <form method="get" >
 		User Name : <input type="text" name="userID" id="userID" > <br><br>
 

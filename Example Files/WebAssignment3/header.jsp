@@ -19,7 +19,7 @@
    </li>
    </c:when>
    <c:otherwise>
-   <li><a href='#'><span>Answer reports</span></a></li>
+   <li><a href='ActiveIssues'><span>Answer reports</span></a></li>
    <li class='last'><a href='#'><span>Resolved Issues</span></a></li>
       </c:otherwise>
 </c:choose>
